@@ -45,12 +45,11 @@ public class C206_CaseStudy {
 			monthlyMenuList.add(new Menu("Watermelon", 1.20));
 			monthlyMenuList.add(new Menu("Pineapple", 1.40));
 			monthlyMenuList.add(new Menu("Grapes", 1.40));
+		
+
 				
-				
-			int option = 0;
-				
-				
-				
+			int option = 0;	
+			
 			while (option != 3) {
 					
 				C206_CaseStudy.mainMenu();
@@ -60,8 +59,8 @@ public class C206_CaseStudy {
 				if (option == 1) {
 					C206_CaseStudy.viewAllMenu(monthlyMenuList);
 						
-				} else if (option == 2) {
-					C206_CaseStudy.login(accountList); 
+				} else if (option == 2) { 
+					C206_CaseStudy.deleteMenu(monthlyMenuList);
 						
 				} else if (option == 3) {
 					System.out.println("Thank you! Goodbye");
@@ -71,6 +70,8 @@ public class C206_CaseStudy {
 				}
 			}
 		}
+}
+
 
 
 		public static void mainMenu() {
@@ -78,6 +79,7 @@ public class C206_CaseStudy {
 			System.out.println("WELCOME TO LUNCHBOX ORDER");
 			Helper.line(80, "-");
 			System.out.println("1. Log in");
+			System.out.println("2. Display Monthly Menu");
 			System.out.println("2. Quit");
 		}
 				
@@ -85,8 +87,7 @@ public class C206_CaseStudy {
 			Helper.line(80, "-");	
 			System.out.println("MONTHLY MENU");
 			Helper.line(80, "-");	
-			System.out.println("Select an option:");
-			System.out.println("1. Display monthly menu");
+			System.out.println("1. Display Monthly Menu");
 			System.out.println("2. Delete monthly menu");
 			System.out.println("3. Quit");
 		}
@@ -122,21 +123,9 @@ public class C206_CaseStudy {
 			output+= retrieveAllMenu(monthlyMenuList);
 				
 			System.out.println(output);
-		}
-
-		private static void login(ArrayList<userAccount> accountList) {
-				
-			int option = 0; 
-				
-			while (option != 3) {
-					
-			option = Helper.readInt("Enter an option > ");
-				
-				
-						
-			}		
-					
-		}
+	
+}	
+	
 		public static void deleteMenu(ArrayList<Menu> monthlyMenuList) {
 			Helper.line(80, "-");
 			System.out.println("DELETE MONTHLY MENU");
@@ -158,6 +147,6 @@ public class C206_CaseStudy {
 						}
 					}		
 				}
-
+		
 			}
 }
