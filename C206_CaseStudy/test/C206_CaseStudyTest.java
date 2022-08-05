@@ -29,71 +29,112 @@ public class C206_CaseStudyTest {
 	private Menu f3;
 	private Menu f4;
 	
-	private ArrayList <Menu> menuList;
+	private ArrayList <Menu> monthlyMenuList;
+	
 	
 	public C206_CaseStudyTest() {
+		super();
 		
 	}
+	
 	@Before
 	public void setUp() throws Exception {
 		//Asian Menu
-		ma1 = new Menu("Fried Rice", 2.00);
-		ma2 = new Menu("Dumpling Noodle", 3.50);
-		ma3 = new Menu("Oyakodon", 3.00);
-		ma4 = new Menu("Curry Rice", 2.50);
+		ma1 = new Menu("August", "Fried Rice", 2.00);
+		ma2 = new Menu("August", "Dumpling Noodle", 3.50);
+		ma3 = new Menu("September", "Oyakodon", 3.00);
+		ma4 = new Menu("September", "Curry Rice", 2.50);
 		
 		//Western Menu
-		mw1 = new Menu("Tomato Pasta ", 2.50);
-		mw2 = new Menu("Chicken Cutlet With Fries", 4.00);
-		mw3 = new Menu("Chicken Tortilla Wrap", 3.00);
-		mw4 = new Menu("Mac and Cheese", 2.80);
+		mw1 = new Menu("September", "Tomato Pasta ", 2.50);
+		mw2 = new Menu("August", "Chicken Cutlet With Fries", 4.00);
+		mw3 = new Menu("August", "Chicken Tortilla Wrap", 3.00);
+		mw4 = new Menu("September", "Mac and Cheese", 2.80);
 		
 		//Vegetarian Menu
-		mv1 = new Menu("Teriyaki Tofu Rice ", 3.50);
-		mv2 = new Menu("Corn Sushi", 2.50);
-		mv3 = new Menu("Roasted Chickpea Wrap", 3.00);
-		mv4 = new Menu ("Pumpkin Soup", 2.00);
+		mv1 = new Menu("August", "Teriyaki Tofu Rice ", 3.50);
+		mv2 = new Menu("August", "Corn Sushi", 2.50);
+		mv3 = new Menu("September", "Roasted Chickpea Wrap", 3.00);
+		mv4 = new Menu ("September", "Pumpkin Soup", 2.00);
 		
 		//Drinks Menu
-		d1 = new Menu("Apple Juice", 1.80);
-		d2 = new Menu("Soymilk", 2.00);
-		d3 = new Menu("Ice Chocolate", 1.50);
-		d4 = new Menu("Green Tea", 1.20);
+		d1 = new Menu("August", "Apple Juice", 1.80);
+		d2 = new Menu("August", "Soymilk", 2.00);
+		d3 = new Menu("September", "Ice Chocolate", 1.50);
+		d4 = new Menu("September", "Green Tea", 1.20);
 		
 		//Fruits Menu
-		f1= new Menu("Watermelon", 1.20);
-		f2 = new Menu("Pineapple", 1.40);
-		f3 = new Menu("Grapes", 1.40);
-		f4 = new Menu("Papaya", 1.00);
+		f1= new Menu("August", "Watermelon", 1.20);
+		f2 = new Menu("August", "Pineapple", 1.40);
+		f3 = new Menu("September", "Grapes", 1.40);
+		f4 = new Menu("September", "Papaya", 1.00);
 		
-		menuList = new ArrayList<Menu>();
+		monthlyMenuList = new ArrayList<Menu>();
 	}
 	
 	@Test
 	public void testviewAllMenu() {
 		
+		//test if there is a valid menu arraylist
+		assertNotNull("test if there is valid Menu arraylist", monthlyMenuList);
+		
 		//test if the list retrieved is empty
-		String allMenu = C206_CaseStudy.retrieveAllMenu(menuList);
+		String allMenu = C206_CaseStudy.retrieveAllMenu(monthlyMenuList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllMenu", testOutput, allMenu);
 		
 		//test if the expected output string same
-		allMenu = C206_CaseStudy.retrieveAllMenu(menuList);
+		allMenu = C206_CaseStudy.retrieveAllMenu(monthlyMenuList);
 
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Dumpling Noodle", "3.50", "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Oyakodon", "3.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
-		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", "2.00" , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Fried Rice", 2.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Dumpling Noodle", 3.50, "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September",  "Oyakodon", 3.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Curry Rice", 2.50 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Tomato Pasta", 2.50 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Cutlet With Fries", 4.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Tortilla Wrap", 3.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Mac and Cheese", 2.80 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Teriyaki Tofu Rice", 3.50 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Corn Sushi", 2.50 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Roasted Chickpea Wrap", 3.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Pumpkin Soup", 2.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Apple Juice", 1.80 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Soymilk", 2.00 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Green Tea", 1.80 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Watermelon", 1.20 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Pineapple", 1.40 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Grapes", 1.40 , "Yes" );
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Papaya", 1.00 , "Yes" );
+		
+		assertEquals("Check that ViewAllMenu", testOutput, allMenu);
+		
 		
 	}
+		
+
+	@Test
+	public void testdeleteMenu() {
+
+		//Test that list is not empty - boundary
+		assertNotNull("test if there is valid Menu arraylist to delete from", monthlyMenuList);
+	
+		// Test that item is removed - normal
+		monthlyMenuList.remove(ma1);
+		assertEquals("Check if item is removed", 0, monthlyMenuList.size());
+				
+		//Item not available - error condition
+		f1.setAvailable(false);
+		boolean avail = C206_CaseStudy.doDeleteMenu(monthlyMenuList, "Watermelon");
+		assertFalse("Test if item is available to delete", avail);	
+		
+		//Test that item not found in menu can be deleted - error condition
+		avail = C206_CaseStudy.doDeleteMenu(monthlyMenuList, "Papaya");
+		assertFalse("Test that non-existing item can be deleted", avail);
+
+
+	}
+	
 
 	@After
 	public void tearDown() throws Exception {
@@ -112,13 +153,8 @@ public class C206_CaseStudyTest {
 		f1 = null;
 		f2 = null;
 		f3 = null;
+		monthlyMenuList = null;
 	}
 
-	@Test
-	public void c206_test() {
-		
-		//fail("Not yet implemented"); 
-		assertTrue("C206_CaseStudy_SampleTest ",true);
-	}
 
 }

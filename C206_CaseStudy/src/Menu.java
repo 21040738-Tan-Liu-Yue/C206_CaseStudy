@@ -1,15 +1,26 @@
 
 public class Menu {
 	
+	private String month; 
 	private String description;
 	private boolean available;
 	private double cost;
 	
 	
-	public Menu(String description, double cost) {
+	public Menu(String month, String description, double cost) {
+		this.month = month;
 		this.description = description;
 		this.available = true;
 		this.cost = cost;
+	}
+
+	public String getMonth() {
+		return month;
+	}
+
+
+	public void setMonth(String month) {
+		this.month = month;
 	}
 
 
@@ -21,8 +32,7 @@ public class Menu {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
+	
 	public boolean getisAvailable() {
 		return available;
 	}
@@ -31,7 +41,6 @@ public class Menu {
 	public void setAvailable(boolean available) {
 		this.available = available;
 	}
-
 
 	public double getCost() {
 		return cost;
@@ -43,8 +52,11 @@ public class Menu {
 	}
 
 
-
-	
-	
-	
+	public String toString(){
+		String output = "";
+		// Write your codes here
+		return output;
+	}
 }
+	
+	
