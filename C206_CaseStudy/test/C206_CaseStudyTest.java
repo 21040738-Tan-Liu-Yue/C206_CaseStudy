@@ -345,7 +345,7 @@ public class C206_CaseStudyTest {
 	@Test
     public void testRetrieveAllmenubank() {
      // test if menu bank list is not null but empty
-     assertNotNull("Test if there is valid menu bank arraylist to retrieve item", MenubankList);
+     assertNotNull("Test if there is valid menu bank arraylist to retrieve item", MenubankList) ;
      
      // test if the list of menu bank retrieved is empty
      String allMenubank = C206_CaseStudy.retrieveAllMenubank(MenubankList);

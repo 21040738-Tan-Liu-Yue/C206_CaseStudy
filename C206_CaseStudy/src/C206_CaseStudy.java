@@ -102,7 +102,7 @@ public class C206_CaseStudy {
 
 				C206_CaseStudy.viewAllMenubank(MenubankList);
 			} else if (option == 11) {
-				MenuBank mb = inputMenubank();
+				MenuBank mb = inputMenubank() ;
 				C206_CaseStudy.addMenubank(MenubankList, mb);
 				System.out.println("Menu bank added!");
 			} else if (option == 12) {
