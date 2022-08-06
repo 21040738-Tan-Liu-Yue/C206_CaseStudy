@@ -220,7 +220,7 @@ public void testviewAllMenu() {
 		assertNotNull("Test if there is valid academic cluster Information list to delete from", accountList);
 		// Test that given a list with 1 account in it, after deleting 1 account, the
 		// size of list is 0 and the item is no longer in the list
-		String allacc = C206_CaseStudy.retrieveAllacc(accountList);
+		String allacc = C206_CaseStudy.retrieveAllacc(accountList) ;
 		String testOutput = "";
 		assertEquals("Test that the retrieved accountlist is empty?", testOutput, allacc);
 
@@ -232,7 +232,7 @@ public void testviewAllMenu() {
 		// size of list is 1 and the item is no longer in the list
 		C206_CaseStudy.addacc(accountList, AC1);
 		C206_CaseStudy.addacc(accountList, AC2);
-		C206_CaseStudy.deleteacc(accountList, AC2);
+		C206_CaseStudy.deleteacc(accountList, AC2) ;
 		assertSame("Test that the academic cluster deleted is no longer in the list", AC1, accountList.get(0));
 		assertEquals("test that the academic cluster list equals 1", 1, accountList.size());
 	}

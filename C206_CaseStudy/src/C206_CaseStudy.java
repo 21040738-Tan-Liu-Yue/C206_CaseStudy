@@ -8,7 +8,7 @@ public class C206_CaseStudy {
 		// administrator account
 
 		ArrayList<userAccount> accountList = new ArrayList<userAccount>();
-		accountList.add(new userAccount("team_3", "98team322"));
+		accountList.add(new userAccount("team_3", "98team322")) ;
 
 		// parent account
 		accountList.add(new userAccount("parent678", "parent8891"));
