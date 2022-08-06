@@ -136,7 +136,7 @@ public class C206_CaseStudyTest {
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Pumpkin Soup", 2.00, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Apple Juice", 1.80, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Soymilk", 2.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes");
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes") ;
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Green Tea", 1.80, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Watermelon", 1.20, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Pineapple", 1.40, "Yes");

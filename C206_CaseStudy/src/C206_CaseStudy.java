@@ -77,7 +77,7 @@ public class C206_CaseStudy {
 
 				// USER ACCOUNT
 			} else if (option == 4) {
-				C206_CaseStudy.viewAllAccount(accountList);
+				C206_CaseStudy.viewAllAccount(accountList) ;
 			} else if (option == 5) {
 				userAccount acc = inputaccount();
 				C206_CaseStudy.deleteacc(accountList, acc);
