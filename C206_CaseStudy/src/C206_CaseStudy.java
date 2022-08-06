@@ -8,10 +8,10 @@ public class C206_CaseStudy {
 		// administrator account
 
 		ArrayList<userAccount> accountList = new ArrayList<userAccount>();
-		accountList.add(new userAccount("team_3", "98team322"));
+		accountList.add(new userAccount("team_3", "98team322")) ;
 
 		// parent account
-		accountList.add(new userAccount("parent678", "parent8891")) ;
+		accountList.add(new userAccount("parent678", "parent8891"));
 
 		// student account
 		accountList.add(new userAccount("student123", "9574student1"));
@@ -54,8 +54,8 @@ public class C206_CaseStudy {
 		orderBillList.add(new orderBill(127, "1-AUG-2021", "Fried Rice", "Ice Chocolate", "Watermelon", 4.70));
 
 		// MENU BANK
-		ArrayList<Menubank> MenubankList = new ArrayList<Menubank>();
-		MenubankList.add(new Menubank("Fried Rice", 2.00));
+		ArrayList<MenuBank> MenubankList = new ArrayList<MenuBank>();
+		MenubankList.add(new MenuBank("Fried Rice", 2.00));
 
 		int option = 0;
 
@@ -77,9 +77,9 @@ public class C206_CaseStudy {
 
 				// USER ACCOUNT
 			} else if (option == 4) {
-				C206_CaseStudy.viewAllAccount(accountList) ;
+				C206_CaseStudy.viewAllAccount(accountList);
 			} else if (option == 5) {
-				userAccount acc = inputaccount(); 
+				userAccount acc = inputaccount();
 				C206_CaseStudy.deleteacc(accountList, acc);
 			} else if (option == 6) {
 				userAccount acc = inputaccount();
@@ -106,7 +106,7 @@ public class C206_CaseStudy {
 				C206_CaseStudy.deleteAllMenubank(MenubankList);
 				System.out.println("Menu bank deleted!");
 			} else if (option == 12) {
-				Menubank mb = inputMenubank();
+				MenuBank mb = inputMenubank();
 				C206_CaseStudy.addMenubank(MenubankList, mb);
 				System.out.println("Menu bank added!");
 			} else if (option == 13) {
@@ -367,11 +367,11 @@ public class C206_CaseStudy {
 	}
 
 	// MENU BANK
-	public static String retrieveAllMenubank(ArrayList<Menubank> MenubankList) {
+	public static String retrieveAllMenubank(ArrayList<MenuBank> MenubankList) {
 		String output = "";
 
 		for (int i = 0; i < MenubankList.size(); i++) {
-			Menubank menubanklist = MenubankList.get(i);
+			MenuBank menubanklist = MenubankList.get(i);
 			output += String.format("%-40s %-20.2f %-10s\n", menubanklist.getDescription(), menubanklist.getCost(),
 					C206_CaseStudy.availability(menubanklist.getisAvailable()));
 		}
@@ -379,7 +379,7 @@ public class C206_CaseStudy {
 		return (output);
 	}
 
-	private static void viewAllMenubank(ArrayList<Menubank> MenubankList) {
+	private static void viewAllMenubank(ArrayList<MenuBank> MenubankList) {
 		Helper.line(80, "-");
 		System.out.println("MENU BANK");
 		Helper.line(80, "-");
@@ -390,7 +390,7 @@ public class C206_CaseStudy {
 		System.out.println(output);
 	}
 
-	private static Menubank inputMenubank() {
+	private static MenuBank inputMenubank() {
 		Helper.line(80, "-");
 		System.out.println("ADD MONTHLY MENU");
 		Helper.line(80, "-");
@@ -398,15 +398,15 @@ public class C206_CaseStudy {
 		String description = Helper.readString("Enter description > ");
 		double amount = Helper.readDouble("Enter amount > ");
 
-		Menubank mb = new Menubank(description, amount);
+		MenuBank mb = new MenuBank(description, amount);
 		return mb;
 	}
 
-	public static void addMenubank(ArrayList<Menubank> MenubankList, Menubank mb) {
+	public static void addMenubank(ArrayList<MenuBank> MenubankList, MenuBank mb) {
 		MenubankList.add(mb);
 	}
 
-	public static boolean doDeleteMenubank(ArrayList<Menubank> MenubankList, String description) {
+	public static boolean doDeleteMenubank(ArrayList<MenuBank> MenubankList, String description) {
 		boolean isDeleted = false;
 
 		for (int i = 0; i < MenubankList.size(); i++) {
@@ -419,7 +419,7 @@ public class C206_CaseStudy {
 		return isDeleted;
 	}
 
-	public static void deleteAllMenubank(ArrayList<Menubank> MenubankList) {
+	public static void deleteAllMenubank(ArrayList<MenuBank> MenubankList) {
 		Helper.line(80, "-");
 		System.out.println("DELETE MONTHLY MENU");
 		Helper.line(80, "-");

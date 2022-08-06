@@ -43,11 +43,11 @@ public class C206_CaseStudyTest {
 	private ArrayList<orderBill> orderBillList;
 
 	//MENU BANK
-	private Menubank mb1;
-	  private Menubank mb2;
-	  private Menubank mb3;
+	private MenuBank mb1;
+	  private MenuBank mb2;
+	  private MenuBank mb3;
 	  
-	  private ArrayList <Menubank> MenubankList;
+	  private ArrayList <MenuBank> MenubankList;
 	public C206_CaseStudyTest() {
 
 	}
@@ -101,10 +101,9 @@ public class C206_CaseStudyTest {
 		
 		
 		//MENU BANK
-	    mb1 = new Menubank("Fried Rice", 2.00);
-	    mb2 = new Menubank("Corn Sushi", 2.50);
-	    mb3 = new Menubank("Pumpkin Soup", 2.00);
-	    MenubankList = new ArrayList<Menubank>();
+	    mb1 = new MenuBank("Fried Rice", 2.00);
+	    mb2 = new MenuBank("Corn Sushi", 2.50);
+	    mb3 = new MenuBank("Pumpkin Soup", 2.00);
 	}
 
 	// MONHTLY MENU
@@ -136,14 +135,14 @@ public class C206_CaseStudyTest {
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Pumpkin Soup", 2.00, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Apple Juice", 1.80, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Soymilk", 2.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes") ;
+		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Green Tea", 1.80, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Watermelon", 1.20, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Pineapple", 1.40, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Grapes", 1.40, "Yes");
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Papaya", 1.00, "Yes");
 
-		//assertEquals("Check that ViewAllMenu", testOutput, allMenu);
+		assertEquals("Check that ViewAllMenu", testOutput, allMenu);
 
 	}
 
@@ -232,7 +231,7 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is valid academic cluster Information list to delete from", accountList);
 		// Test that given a list with 1 account in it, after deleting 1 account, the
 		// size of list is 0 and the item is no longer in the list
-		String allacc = C206_CaseStudy.retrieveAllacc(accountList) ;
+		String allacc = C206_CaseStudy.retrieveAllacc(accountList);
 		String testOutput = "";
 		assertEquals("Test that the retrieved accountlist is empty?", testOutput, allacc);
 
@@ -363,7 +362,7 @@ public class C206_CaseStudyTest {
      testOutput += String.format("%-40s %-20.2f %-10s\n", "Corn Sushi", 2.50, "YES");
      testOutput += String.format("%-40s %-20.2f %-10s\n", "Pumpkin Soup", 2.00, "YES");
    
-     //assertEquals("Test that viewAllmenubank", testOutput, allMenubank);
+     assertEquals("Test that viewAllmenubank", testOutput, allMenubank);
 	     
 	}
 	
