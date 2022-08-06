@@ -11,7 +11,7 @@ public class C206_CaseStudy {
 		accountList.add(new userAccount("team_3", "98team322"));
 
 		// parent account
-		accountList.add(new userAccount("parent678", "parent8891"));
+		accountList.add(new userAccount("parent678", "parent8891")) ;
 
 		// student account
 		accountList.add(new userAccount("student123", "9574student1"));
@@ -79,7 +79,7 @@ public class C206_CaseStudy {
 			} else if (option == 4) {
 				C206_CaseStudy.viewAllAccount(accountList) ;
 			} else if (option == 5) {
-				userAccount acc = inputaccount();
+				userAccount acc = inputaccount(); 
 				C206_CaseStudy.deleteacc(accountList, acc);
 			} else if (option == 6) {
 				userAccount acc = inputaccount();
