@@ -44,7 +44,7 @@ public class C206_CaseStudyTest {
 	private ArrayList<orderBill> orderBillList;
 
 	//MENU BANK
-	private MenuBank mb1;
+	private MenuBank mb1 ;
 	private MenuBank mb2;
 	private MenuBank mb3;
 	private ArrayList <MenuBank> MenubankList;

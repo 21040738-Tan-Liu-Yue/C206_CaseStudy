@@ -424,7 +424,7 @@ public class C206_CaseStudy {
 		System.out.println("DELETE MONTHLY MENU");
 		Helper.line(80, "-");
 
-		boolean menuFound = false;
+		boolean menuFound = false ;
 		String menuDelete = Helper.readString("Enter menu description to delete > ");
 
 		for (int i = 0; i < MenubankList.size(); i++) {
