@@ -8,7 +8,7 @@ public class C206_CaseStudy {
 		// administrator account
 
 		ArrayList<userAccount> accountList = new ArrayList<userAccount>();
-		accountList.add(new userAccount("team_3", "98team322"));
+		accountList.add(new userAccount("team_3", "98team322")) ;
 
 		// parent account
 		accountList.add(new userAccount("parent678", "parent8891"));
@@ -56,9 +56,9 @@ public class C206_CaseStudy {
 		orderBillList.add(new orderBill(126, "1-AUG-2021", "Teriyaki Tofu Rice", "Apple Juice", "Grapes", 6.70));
 		orderBillList.add(new orderBill(127, "1-AUG-2021", "Fried Rice", "Ice Chocolate", "Watermelon", 4.70));
 
-		// MENU BANK
-		ArrayList<MenuBank> MenubankList = new ArrayList<MenuBank>();
-		MenubankList.add(new MenuBank("Fried Rice", 2.00));
+		//MENU BANK
+		 ArrayList<MenuBank> MenubankList = new ArrayList<MenuBank>();
+		  MenubankList.add(new MenuBank("Fried Rice", 2.00));
 
 		// lunch box
 

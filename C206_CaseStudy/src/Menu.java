@@ -43,5 +43,4 @@ public class Menu {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-
 }

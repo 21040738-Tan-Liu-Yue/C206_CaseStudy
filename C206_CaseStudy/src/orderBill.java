@@ -1,4 +1,3 @@
-
 public class orderBill {
 		 private int id;
 		 private String date;
