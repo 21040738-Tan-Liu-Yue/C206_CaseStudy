@@ -4,7 +4,7 @@
 import java.util.*;
 
 public class Helper {
-
+ 
   @SuppressWarnings("resource")
   public static String readString(String prompt) {
     System.out.print(prompt);

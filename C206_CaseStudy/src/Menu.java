@@ -20,7 +20,7 @@ public class Menu {
 		this.month = month;
 	}
 
-	public String getDescription() {
+	public String getDescription() { 
 		return description;
 	}
 

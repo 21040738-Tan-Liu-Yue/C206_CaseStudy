@@ -9,8 +9,8 @@ public class MenuBank {
 		  public MenuBank(String description, double cost) {
 		    this.description = description;
 		    this.available = true;
-		    this.cost = cost;
-		  }
+		    this.cost = cost;  
+		  } 
 
 
 		  public String getDescription() {

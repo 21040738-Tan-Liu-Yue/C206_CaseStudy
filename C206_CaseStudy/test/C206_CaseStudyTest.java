@@ -42,12 +42,18 @@ public class C206_CaseStudyTest {
 	private orderBill ob8;
 	private ArrayList<orderBill> orderBillList;
 
-	//MENU BANK
+	// MENU BANK
 	private MenuBank mb1;
-	  private MenuBank mb2;
-	  private MenuBank mb3;
-	  
-	  private ArrayList <MenuBank> MenubankList;
+	private MenuBank mb2;
+	private MenuBank mb3;
+	private ArrayList<MenuBank> MenubankList;
+
+	// lunch box
+	private LunchBox l1;
+	private LunchBox l2;
+	private LunchBox l3;
+	private ArrayList<LunchBox> lunchBoxList;
+
 	public C206_CaseStudyTest() {
 
 	}
@@ -98,12 +104,16 @@ public class C206_CaseStudyTest {
 		AC2 = new userAccount("parent678", "parent8891");
 		AC3 = new userAccount("student123", "9574student1");
 		accountList = new ArrayList<userAccount>();
-		
-		
-		//MENU BANK
-	    mb1 = new MenuBank("Fried Rice", 2.00);
-	    mb2 = new MenuBank("Corn Sushi", 2.50);
-	    mb3 = new MenuBank("Pumpkin Soup", 2.00);
+
+		// MENU BANK
+		mb1 = new MenuBank("Fried Rice", 2.00);
+		mb2 = new MenuBank("Corn Sushi", 2.50);
+		mb3 = new MenuBank("Pumpkin Soup", 2.00);
+
+		// lunch box
+		l1 = new LunchBox(124, "1-AUG-2021", "Fried Rice", "Apple Juice", "Watermelon");
+		l2 = new LunchBox(123, "24-JULY-2021", "Kimchi Fried Rice", "Orange Juice", "Apple");
+		l3 = new LunchBox(125, "6-DEC-2021", "Bolognese", "Mango Juice", "Orange");
 	}
 
 	// MONHTLY MENU
@@ -118,29 +128,30 @@ public class C206_CaseStudyTest {
 		String testOutput = "";
 		assertEquals("Check that ViewAllMenu", testOutput, allMenu);
 
+		
 		// test if the expected output string same
 		allMenu = C206_CaseStudy.retrieveAllMenu(monthlyMenuList);
 
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Fried Rice", 2.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Dumpling Noodle", 3.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Oyakodon", 3.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Curry Rice", 2.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Tomato Pasta", 2.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Cutlet With Fries", 4.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Tortilla Wrap", 3.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Mac and Cheese", 2.80, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Teriyaki Tofu Rice", 3.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Corn Sushi", 2.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Roasted Chickpea Wrap", 3.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Pumpkin Soup", 2.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Apple Juice", 1.80, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Soymilk", 2.00, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Green Tea", 1.80, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Watermelon", 1.20, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Pineapple", 1.40, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Grapes", 1.40, "Yes");
-		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Papaya", 1.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Dumpling Noodle", 3.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Oyakodon", 3.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Curry Rice", 2.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Tomato Pasta", 2.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Cutlet With Fries", 4.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Chicken Tortilla Wrap", 3.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Mac and Cheese", 2.80, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Teriyaki Tofu Rice", 3.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Corn Sushi", 2.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Roasted Chickpea Wrap", 3.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Pumpkin Soup", 2.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Apple Juice", 1.80, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Soymilk", 2.00, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Ice Chocolate", 1.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Green Tea", 1.80, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Watermelon", 1.20, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Pineapple", 1.40, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Grapes", 1.40, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Papaya", 1.00, "Yes");
 
 		assertEquals("Check that ViewAllMenu", testOutput, allMenu);
 
@@ -155,6 +166,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.createMontlyMenu(monthlyMenuList, mv1);
 		C206_CaseStudy.createMontlyMenu(monthlyMenuList, mw3);
 		assertEquals("Test if that Monthly Menu arraylist size is 2", 2, monthlyMenuList.size());
+		
 		// Test if item added is is the same
 		assertSame("Test that the Menu added is the same as 2nd item of the list?", mw3, monthlyMenuList.get(1));
 
@@ -316,70 +328,133 @@ public class C206_CaseStudyTest {
 		assertTrue("Test if order bill is deleted", isDeleted);
 
 	}
-	
+
 	public void addMenubank() {
-	      // menu bank list is not null, can add menu bank
-	      assertNotNull("Test if there is valid menubank arraylist to add to", MenubankList);
-	      
-	      // add 1st menubank, size of the list 1
-	      // the item just added is as same as the first item of the list
-	      C206_CaseStudy.addMenubank(MenubankList, mb1);
-	      assertEquals("Test that menu bank arraylist is 1", 1, MenubankList.size());
-	      assertSame("Test that menu bank is added", mb1, MenubankList.get(0));
-	      
-	      // add 2nd menu bank, test the size of list is 2
-	      // the item added is as same as the second item of the list
-	      C206_CaseStudy.addMenubank(MenubankList, mb2);
-	      assertEquals("Test that menu bank arraylist is 2", 2, MenubankList.size());
-	      assertSame("Test that menu bank is added", mb2, MenubankList.get(1));
-	      
-	      // add 3rd menu bank, test the size of list is 3
-	      // the item added is same as the third item of the list
-	      C206_CaseStudy.addMenubank(MenubankList, mb3);
-	      assertEquals("Test that menu bank arraylist is 3", 3, MenubankList.size());
-	      assertSame("Test that menu bank is added", mb3, MenubankList.get(2));
-	      
-	     }
-	@Test
-    public void testRetrieveAllmenubank() {
-     // test if menu bank list is not null but empty
-     assertNotNull("Test if there is valid menu bank arraylist to retrieve item", MenubankList);
-     
-     // test if the list of menu bank retrieved is empty
-     String allMenubank = C206_CaseStudy.retrieveAllMenubank(MenubankList);
-     String testOutput = "";
-     assertEquals("Check that viewAllmenubank", testOutput, allMenubank);
-     
-     // added 3 item and test if the size is 3
-     C206_CaseStudy.addMenubank(MenubankList, mb1);
-     C206_CaseStudy.addMenubank(MenubankList, mb2);
-     C206_CaseStudy.addMenubank(MenubankList, mb3);
-     assertEquals("Test that menu bank arraylist size is 3", 3, MenubankList.size());
-     
-     // test if the expected output is the same as the list from C206_CaseStudy
-     allMenubank = C206_CaseStudy.retrieveAllMenubank(MenubankList);
-     testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", 2.00, "YES");
-     testOutput += String.format("%-40s %-20.2f %-10s\n", "Corn Sushi", 2.50, "YES");
-     testOutput += String.format("%-40s %-20.2f %-10s\n", "Pumpkin Soup", 2.00, "YES");
-   
-     assertEquals("Test that viewAllmenubank", testOutput, allMenubank);
-	     
+		// menu bank list is not null, can add menu bank
+		assertNotNull("Test if there is valid menubank arraylist to add to", MenubankList);
+
+		// add 1st menubank, size of the list 1
+		// the item just added is as same as the first item of the list
+		C206_CaseStudy.addMenubank(MenubankList, mb1);
+		assertEquals("Test that menu bank arraylist is 1", 1, MenubankList.size());
+		assertSame("Test that menu bank is added", mb1, MenubankList.get(0));
+
+		// add 2nd menu bank, test the size of list is 2
+		// the item added is as same as the second item of the list
+		C206_CaseStudy.addMenubank(MenubankList, mb2);
+		assertEquals("Test that menu bank arraylist is 2", 2, MenubankList.size());
+		assertSame("Test that menu bank is added", mb2, MenubankList.get(1));
+
+		// add 3rd menu bank, test the size of list is 3
+		// the item added is same as the third item of the list
+		C206_CaseStudy.addMenubank(MenubankList, mb3);
+		assertEquals("Test that menu bank arraylist is 3", 3, MenubankList.size());
+		assertSame("Test that menu bank is added", mb3, MenubankList.get(2));
+
 	}
-	
-	 @Test
-     public void deleteAllMenubank() {
-      assertNotNull("Test if there is valid menu bank arraylist to delete from", MenubankList);
-      C206_CaseStudy.addMenubank(MenubankList, mb1);
-      
-      // error 
-      Boolean isDeleted = C206_CaseStudy.doDeleteMenubank(MenubankList, "Tomato Pasta");
-      assertFalse("Test if non-existing menu bank is deleted", isDeleted);
-      
-      // normal
-      C206_CaseStudy.addMenubank(MenubankList, mb2);
-      isDeleted = C206_CaseStudy.doDeleteMenubank(MenubankList, "Fried Rice");
-      assertTrue("Test if menubank is deleted", isDeleted);
-	 }
+
+	@Test
+	public void testRetrieveAllmenubank() {
+		// test if menu bank list is not null but empty
+		assertNotNull("Test if there is valid menu bank arraylist to retrieve item", MenubankList);
+
+		// test if the list of menu bank retrieved is empty
+		String allMenubank = C206_CaseStudy.retrieveAllMenubank(MenubankList);
+		String testOutput = "";
+		assertEquals("Check that viewAllmenubank", testOutput, allMenubank);
+
+		// added 3 item and test if the size is 3
+		C206_CaseStudy.addMenubank(MenubankList, mb1);
+		C206_CaseStudy.addMenubank(MenubankList, mb2);
+		C206_CaseStudy.addMenubank(MenubankList, mb3);
+		assertEquals("Test that menu bank arraylist size is 3", 3, MenubankList.size());
+
+		// test if the expected output is the same as the list from C206_CaseStudy
+		allMenubank = C206_CaseStudy.retrieveAllMenubank(MenubankList);
+		testOutput = String.format("%-40s %-20.2f %-10s\n", "Fried Rice", 2.00, "YES");
+		testOutput += String.format("%-40s %-20.2f %-10s\n", "Corn Sushi", 2.50, "YES");
+		testOutput += String.format("%-40s %-20.2f %-10s\n", "Pumpkin Soup", 2.00, "YES");
+
+		assertEquals("Test that viewAllmenubank", testOutput, allMenubank);
+
+	}
+
+	@Test
+	public void deleteAllMenubank() {
+		assertNotNull("Test if there is valid menu bank arraylist to delete from", MenubankList);
+		C206_CaseStudy.addMenubank(MenubankList, mb1);
+
+		// error
+		Boolean isDeleted = C206_CaseStudy.doDeleteMenubank(MenubankList, "Tomato Pasta");
+		assertFalse("Test if non-existing menu bank is deleted", isDeleted);
+
+		// normal
+		C206_CaseStudy.addMenubank(MenubankList, mb2);
+		isDeleted = C206_CaseStudy.doDeleteMenubank(MenubankList, "Fried Rice");
+		assertTrue("Test if menubank is deleted", isDeleted);
+	}
+
+	@Test
+	public void testretrieveLunchboxOrder() {
+		// test if lunchbox list is not null but empty
+		assertNotNull("Test if there is valid lunchbox arraylist to retrieve item", lunchBoxList);
+
+		// test if the list of lunchbox retrieved is empty
+		String allLunchBox = C206_CaseStudy.retrieveLunchboxOrder(lunchBoxList);
+		String testOutput = "";
+		assertEquals("Check that viewAllLunchbox", testOutput, allLunchBox);
+
+		// added 3 item and test if the size is 3
+		C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+		C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+		C206_CaseStudy.addlunchbox(lunchBoxList, l3);
+		assertEquals("Test that lunchbox arraylist size is 3", 3, lunchBoxList.size());
+
+		// test if the expected output is the same as the list from C206_CaseStudy
+		allLunchBox = C206_CaseStudy.retrieveLunchboxOrder(lunchBoxList);
+		testOutput = String.format("%-40d %-20s %-20s %-20s %-40s\n", 124, "1-AUG-2021", "Fried Rice", "Apple Juice",
+				"Watermelon");
+		testOutput += String.format("%-40d %-20s %-20s %-20s %-40s\n", 123, "24-JULY-2021", "Kimchi Fried Rice",
+				"Orange Juice", "Apple");
+		testOutput += String.format("%-40d %-20s %-20s %-20s %-40s\n", 125, "6-DEC-2021", "Bolognese", "Mango Juice",
+				"Orange");
+
+		assertEquals("Test that viewAlllunchbox", testOutput, allLunchBox);
+
+	}
+
+	public void testAddLunchBox() {
+		// lunchbox list is not null, can add lunchbox
+		assertNotNull("Test if there is valid lunch box arraylist to add to", lunchBoxList);
+
+		C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+		assertEquals("Test that lunchbox arraylist is 1", 1, lunchBoxList.size());
+		assertSame("Test that lunchbox is added", l1, lunchBoxList.get(0));
+
+		C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+		assertEquals("Test that lunchbox arraylist is 2", 2, lunchBoxList.size());
+		assertSame("Test that lunchbox is added", l2, lunchBoxList.get(1));
+
+		C206_CaseStudy.addlunchbox(lunchBoxList, l3);
+		assertEquals("Test that lunchbox arraylist is 3", lunchBoxList.size());
+		assertSame("Test that lunchbox is added", l3, lunchBoxList.get(2));
+	}
+
+	@Test
+	public void testDeletelunchbox() {
+		assertNotNull("Test if there is valid lunchbox arraylist to delete from", lunchBoxList);
+		C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+		// error
+		Boolean isDeleted = C206_CaseStudy.doDeleteLunchBox(lunchBoxList, 111);
+		assertFalse("Test if non-existing lunchbox is deleted", isDeleted);
+
+		// normal
+		C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+		isDeleted = C206_CaseStudy.doDeleteLunchBox(lunchBoxList, 123);
+		assertTrue("Test if lunchbox is deleted", isDeleted);
+
+	}
+
 	@After
 	public void tearDown() throws Exception {
 		ma1 = null;
@@ -410,12 +485,12 @@ public class C206_CaseStudyTest {
 		ob7 = null;
 		ob8 = null;
 		orderBillList = null;
-		
-		//MENU BANK
-	    mb1 = null;
-	    mb2 = null;
-	    mb3 = null;
-	    MenubankList = null;
+
+		// MENU BANK
+		mb1 = null;
+		mb2 = null;
+		mb3 = null;
+		MenubankList = null;
 	}
 
 }
