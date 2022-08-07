@@ -1,5 +1,5 @@
-
 public class Menu {
+
 	private String month;
 	private String description;
 	private boolean available;
@@ -9,7 +9,7 @@ public class Menu {
 		this.month = month;
 		this.description = description;
 		this.available = true;
-		this.cost = cost;
+		this.cost = cost ;
 	}
 
 	public String getMonth() {
@@ -43,8 +43,4 @@ public class Menu {
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-
 }
-	
-	
-

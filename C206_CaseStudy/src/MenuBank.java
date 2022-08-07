@@ -39,7 +39,7 @@ public class MenuBank {
 
 
 	  public void setCost(double cost) {
-	    this.cost = cost;
+	    this.cost = cost ;
 	  }
 
 }
