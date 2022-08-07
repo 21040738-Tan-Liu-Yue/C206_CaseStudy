@@ -133,7 +133,7 @@ public class C206_CaseStudyTest {
 		allMenu = C206_CaseStudy.retrieveAllMenu(monthlyMenuList);
 
 		testOutput = String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Fried Rice", 2.00, "Yes");
-		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Dumpling Noodle", 3.50, "Yes");
+		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "August", "Dumpling Noodle", 3.50, "Yes") ;
 		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Oyakodon", 3.00, "Yes");
 		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Curry Rice", 2.50, "Yes");
 		testOutput += String.format("%-20s %-40s %-20.2f %-10s\n", "September", "Tomato Pasta", 2.50, "Yes");

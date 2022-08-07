@@ -175,12 +175,12 @@ public class C206_CaseStudy {
 		if (availablity == true) {
 			available = "Yes";
 		} else {
-			available = "No";
+			available = "No" ;
 		}
 		return available;
 	}
 
-	public static String retrieveAllMenu(ArrayList<Menu> monthlyMenuList) {
+	public static String retrieveAllMenu(ArrayList<Menu> monthlyMenuList)  {
 		String output = "";
 		for (int i = 0; i < monthlyMenuList.size(); i++) {
 			Menu menulist = monthlyMenuList.get(i);

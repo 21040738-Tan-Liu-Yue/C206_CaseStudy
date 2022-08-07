@@ -3,7 +3,7 @@
 
 import java.util.*;
 
-public class Helper {
+public class Helper  {
  
   @SuppressWarnings("resource")
   public static String readString(String prompt) {
