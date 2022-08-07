@@ -301,7 +301,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addorderBill(orderBillList, ob6);
 		C206_CaseStudy.addorderBill(orderBillList, ob7);
 		C206_CaseStudy.addorderBill(orderBillList, ob8);
-		assertEquals("Test that orderBill arraylist size is 3", 3, orderBillList.size());
+		assertEquals("Test that orderBill arraylist size is 3", 3, orderBillList.size()) ;
 
 		// test if the expected output is the same as the list from C206_CaseStudy
 		allOrderBill = C206_CaseStudy.retrieveorderBills(orderBillList);

@@ -375,7 +375,7 @@ public class C206_CaseStudy {
 		Helper.line(80, "-");
 
 		boolean orderBillFound = false;
-		int orderBillDelete = Helper.readInt("Enter order id to delete > ");
+		int orderBillDelete = Helper.readInt("Enter order id to delete > ") ;
 
 		for (int i = 0; i < orderBillList.size(); i++) {
 			if (orderBillDelete == orderBillList.get(i).getID()) {
