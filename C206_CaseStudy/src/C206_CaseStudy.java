@@ -18,6 +18,9 @@ public class C206_CaseStudy {
 
 		// create monthly menu
 		ArrayList<Menu> monthlyMenuList = new ArrayList<Menu>();
+		
+		// create lunchbox 
+	      ArrayList<LunchBox> lunchBoxList = new ArrayList<LunchBox>();
 
 		// Asian Menu
 		monthlyMenuList.add(new Menu("August", "Fried Rice", 2.00));
@@ -56,10 +59,19 @@ public class C206_CaseStudy {
 		// MENU BANK
 		ArrayList<MenuBank> MenubankList = new ArrayList<MenuBank>();
 		MenubankList.add(new MenuBank("Fried Rice", 2.00));
+		
+		 
+	      // lunch box 
+	      
+	      lunchBoxList.add(new LunchBox(124, "1-AUG-2021", "Fried Rice", "Apple Juice", "Watermelon" ));
+	      lunchBoxList.add(new LunchBox(123, "24-JULY-2021", "Kimchi Fried Rice", "Orange Juice", "Apple" ));
+	      lunchBoxList.add(new LunchBox(125, "6-DEC-2021", "Bolognese", "Mango Juice", "Orange" ));  
+	       
+	      
 
 		int option = 0;
 
-		while (option != 13) {
+		while (option != 16) {
 
 			C206_CaseStudy.adminmenu();
 
@@ -106,10 +118,17 @@ public class C206_CaseStudy {
 				C206_CaseStudy.addMenubank(MenubankList, mb);
 				System.out.println("Menu bank added!");
 			} else if (option == 12) {
-
 				C206_CaseStudy.deleteAllMenubank(MenubankList);
 				System.out.println("Menu bank deleted!");
-			} else if (option == 13) {
+			} else if (option == 13){
+				C206_CaseStudy.viewAllLunchbox(lunchBoxList);
+			}else if (option == 14) {
+				   LunchBox lunchbox = inputAccount();
+	                C206_CaseStudy.addlunchbox(lunchBoxList, lunchbox);
+	                System.out.println("Account added");
+			} else if (option == 15) {
+				  C206_CaseStudy.deleteLunchBox(lunchBoxList);
+			} else if (option == 16) {
 				System.out.println("Thank you! Goodbye");
 			} else {
 				System.out.println("Invalid option");
@@ -138,7 +157,12 @@ public class C206_CaseStudy {
 		System.out.println("10. Display Menu bank");
 		System.out.println("11. Add Menu bank");
 		System.out.println("12. Delete Menu bank");
-		System.out.println("13. Quit");
+		
+		// lunch box
+		System.out.println("13. Display Lunch box");
+		System.out.println("14. Add Lunch box");
+		System.out.println("15. Delete Lunch box");
+		System.out.println("16. Quit");
 	}
 
 	// MONTHLY MENU
@@ -421,7 +445,7 @@ public class C206_CaseStudy {
 
 	public static void deleteAllMenubank(ArrayList<MenuBank> MenubankList) {
 		Helper.line(80, "-");
-		System.out.println("DELETE MONTHLY MENU");
+		System.out.println("DELETE MONTHLY MENU") ;
 		Helper.line(80, "-");
 
 		boolean menuFound = false ;
@@ -442,8 +466,94 @@ public class C206_CaseStudy {
 		}
 
 	}
+	public static String retrieveLunchboxOrder(ArrayList<LunchBox> lunchBoxList) {
+	    // TODO Auto-generated method stub
+	       String output = "";
+	          
+	            
+	        for (int i = 0; i < lunchBoxList.size(); i++) {
+	          LunchBox lunchboxList = lunchBoxList.get(i);
+	          output+= String.format("%-40d %-20s %-20s %-20s %-40s\n", lunchboxList.getId(), lunchboxList.getDate(), lunchboxList.getMeal(), lunchboxList.getDrink(), lunchboxList.getFruit());
+	        }
+	          
+	        return(output);
+	      }  
+	    
+	    private static void viewAllLunchbox(ArrayList<LunchBox> lunchBoxList) {
+	      Helper.line(80, "-");
+	      System.out.println("VIEW LUNCH BOX");
+	      Helper.line(80, "-");
+	        
+	      String output = String.format("%-40s %-20s %-20s %-20s %-40s\n", "ID", "DATE", "MEAL","DRINK", "FRUIT");
+	      output+= retrieveLunchboxOrder(lunchBoxList);
+	        
+	      System.out.println(output);
+	  
+	} 
+	    public static boolean doDeleteLunchBox(ArrayList<LunchBox> lunchBoxList, int id) {
+	         boolean isDeleted = false;
+	         
+	         for (int i = 0; i < lunchBoxList.size(); i++) {
+	          int lbID = lunchBoxList.get(i).getId();
+	          if (id == lbID) {
+	           isDeleted = true;
+	          }
+	          
+	         }
+	         return isDeleted;
+	        }
 
-}
+	    public static void deleteLunchBox(ArrayList<LunchBox> lunchBoxList) {
+	      Helper.line(80, "-");
+	      System.out.println("DELETE luncbox id");
+	      Helper.line(80, "-");
+	        
+	      boolean lunchBoxFound = false;
+	      int lunchBoxDelete = Helper.readInt("Enter lunchbox id to delete > ");
+	        
+	      for (int i = 0; i < lunchBoxList.size(); i++) {
+	        if (lunchBoxDelete== lunchBoxList.get(i).getId()) {
+	              lunchBoxFound = true;
+	            
+	            if (lunchBoxFound == false) {
+	              System.out.println("Menu description given not found!");
+	            } else {
+	              lunchBoxList.remove(i);
+	              System.out.println("Deleted successfully!");
+	            }
+	          }  
+	        
+	      }
+	        }
+	      public static LunchBox inputAccount() {
+	            int id = Helper.readInt("Enter id > ");
+	            String date = Helper.readString("Enter date > ");
+	            String meal = Helper.readString("Enter meal > ");
+	            String drink = Helper.readString("Enter drink > ");
+	            String fruit = Helper.readString("Enter fruit > ");
+	            LunchBox acc= new LunchBox(id, date,meal,drink,fruit);
+	            
+	            return acc;
+	            
+	          }
+	          public static void addlunchbox(ArrayList<LunchBox> lunchboxList,  LunchBox lunchbox) {
+
+	            lunchboxList.add(lunchbox);
+	    
+	      }
+
+
+	       
+	          
+	        
+	    
+	  
+
+
+	    
+	}
+
+
 
 
 

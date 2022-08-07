@@ -45,9 +45,16 @@ public class C206_CaseStudyTest {
 
 	//MENU BANK
 	private MenuBank mb1 ;
-	private MenuBank mb2;
+	private MenuBank mb2 ;
 	private MenuBank mb3;
 	private ArrayList <MenuBank> MenubankList;
+	
+	// lunch box
+	private LunchBox l1;
+	private LunchBox l2;
+	private LunchBox l3;
+	private ArrayList <LunchBox> lunchBoxList;
+	
 	public C206_CaseStudyTest() {
 
 	}
@@ -105,6 +112,12 @@ public class C206_CaseStudyTest {
 	    mb2 = new MenuBank("Corn Sushi", 2.50);
 	    mb3 = new MenuBank("Pumpkin Soup", 2.00);
 	    
+	    // lunch box
+	    l1 = new LunchBox(124, "1-AUG-2021", "Fried Rice", "Apple Juice", "Watermelon" );
+	    l2 = new LunchBox(123, "24-JULY-2021", "Kimchi Fried Rice", "Orange Juice", "Apple" );
+	    l3 = new LunchBox(125, "6-DEC-2021", "Bolognese", "Mango Juice", "Orange" );  
+	    
+	    lunchBoxList = new ArrayList<LunchBox>();
 	    MenubankList = new ArrayList<MenuBank>();
 	}
 
@@ -382,6 +395,66 @@ public class C206_CaseStudyTest {
       isDeleted = C206_CaseStudy.doDeleteMenubank(MenubankList, "Fried Rice");
       assertTrue("Test if menubank is deleted", isDeleted);
 	 }
+	 
+	 @Test
+	  public void testretrieveLunchboxOrder() {
+	      // test if lunchbox list is not null but empty
+	      assertNotNull("Test if there is valid lunchbox arraylist to retrieve item", lunchBoxList);
+	      
+	      // test if the list of lunchbox retrieved is empty
+	      String allLunchBox = C206_CaseStudy.retrieveLunchboxOrder(lunchBoxList);
+	      String testOutput = "";
+	      assertEquals("Check that viewAllLunchbox", testOutput, allLunchBox);
+	      
+	      // added 3 item and test if the size is 3
+	      C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+	      C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+	      C206_CaseStudy.addlunchbox(lunchBoxList, l3);
+	      assertEquals("Test that lunchbox arraylist size is 3", 3, lunchBoxList.size());
+	      
+	      // test if the expected output is the same as the list from C206_CaseStudy
+	      allLunchBox= C206_CaseStudy.retrieveLunchboxOrder(lunchBoxList);
+	      testOutput = String.format("%-40d %-20s %-20s %-20s %-40s\n", 124, "1-AUG-2021", "Fried Rice", "Apple Juice", "Watermelon");
+	      testOutput += String.format("%-40d %-20s %-20s %-20s %-40s\n", 123, "24-JULY-2021", "Kimchi Fried Rice", "Orange Juice", "Apple");
+	      testOutput += String.format("%-40d %-20s %-20s %-20s %-40s\n", 125, "6-DEC-2021", "Bolognese", "Mango Juice", "Orange");
+	      
+	      assertEquals("Test that viewAlllunchbox", testOutput, allLunchBox);
+	      
+	      
+	     }
+	 
+	  public void testAddLunchBox() {
+		  // lunchbox list is not null, can add lunchbox
+		   assertNotNull("Test if there is valid lunch box arraylist to add to",lunchBoxList);
+		    
+		      
+		   C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+		   assertEquals("Test that lunchbox arraylist is 1", 1, lunchBoxList.size());
+		   assertSame("Test that lunchbox is added", l1, lunchBoxList.get(0));
+		      
+		   C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+		   assertEquals("Test that lunchbox arraylist is 2", 2, lunchBoxList.size());
+		   assertSame("Test that lunchbox is added", l2, lunchBoxList.get(1));
+		      
+		   C206_CaseStudy.addlunchbox(lunchBoxList, l3);
+		   assertEquals("Test that lunchbox arraylist is 3", lunchBoxList.size());
+		   assertSame("Test that lunchbox is added", l3, lunchBoxList.get(2));
+	   }
+	  @Test
+	  public void testDeletelunchbox() {
+	      assertNotNull("Test if there is valid lunchbox arraylist to delete from", lunchBoxList);
+	      C206_CaseStudy.addlunchbox(lunchBoxList, l1);
+	      
+	      // error 
+	      Boolean isDeleted = C206_CaseStudy.doDeleteLunchBox(lunchBoxList, 111);
+	      assertFalse("Test if non-existing lunchbox is deleted", isDeleted);
+	      
+	      // normal
+	      C206_CaseStudy.addlunchbox(lunchBoxList, l2);
+	      isDeleted = C206_CaseStudy.doDeleteLunchBox(lunchBoxList, 123);
+	      assertTrue("Test if lunchbox is deleted", isDeleted);
+	      
+	     }
 	@After
 	public void tearDown() throws Exception {
 		ma1 = null;
@@ -418,6 +491,12 @@ public class C206_CaseStudyTest {
 	    mb2 = null;
 	    mb3 = null;
 	    MenubankList = null;
+	    
+	    // lunch box
+	    l1 = null;
+	    l2= null;
+	    l3 = null;
+	    lunchBoxList = null;
 	}
 
 }
